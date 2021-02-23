@@ -46,7 +46,7 @@ test_images = fake_rgb(test_images)
 train_images = preprocess_input(train_images)
 
 # Load the model
-model = ResNet50(include_top=False, input_shape=train_images[0].shape)
+model = ResNet50(include_top=False, weights=None, input_shape=train_images[0].shape, classes=10)
 
 # Make it ready for classification
 flat1 = Flatten()(model.layers[-1].output)
