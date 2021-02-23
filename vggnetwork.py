@@ -38,10 +38,9 @@ plt.show()
 # check shape so that we can see if necessary to change it
 print(train_images.shape)
 
-# coonvert name labels into form [0,0,0,1]
+# convert name labels into form [0,0,0,1]
 train_labels_one_hot = to_categorical(train_labels)
 test_labels_one_hot = to_categorical(test_labels)
-
 
 # reshape them since its black/white so last channel is 1 (RGB is 3)
 train_images = train_images.reshape(-1, 28, 28, 1)
