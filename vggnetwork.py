@@ -112,7 +112,6 @@ model.fit(
 )
 
 
-
 # test trained model
 test_loss, test_acc = model.evaluate(test_images, test_labels_one_hot)
 print('Test loss', test_loss)
