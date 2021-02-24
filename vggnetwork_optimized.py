@@ -95,7 +95,7 @@ def objective(trial):
     model.fit(
         train_images,
         train_labels_one_hot,
-        epochs=10,
+        epochs=50,
         validation_split=0.2,
         batch_size=128,
         verbose=1
@@ -109,7 +109,7 @@ def objective(trial):
 
 
 study = optuna.create_study(direction='maximize')
-study.optimize(objective, n_trials=3)
+study.optimize(objective, n_trials=200)
 
 print(study.best_params)
 joblib.dump(study, 'study.pkl')
