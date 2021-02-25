@@ -34,6 +34,7 @@ def lrelu(x): return keras.activations.relu(x, alpha=0.1)
 
 
 def objective(trial):
+    '''
     optimizer = trial.suggest_categorical('optimizer', [
         'SGD',
         'RMSprop',
@@ -44,6 +45,8 @@ def objective(trial):
         'Nadam',
         'Ftrl'
     ])
+    '''
+    optimizer = 'Adam'
     dropout = trial.suggest_float('dropout', 0, 1)
     # l1 = trial.suggest_loguniform('l1', 0.000001, 0.1)
 
@@ -109,7 +112,7 @@ def objective(trial):
 
 
 study = optuna.create_study(direction='maximize')
-study.optimize(objective, n_trials=200)
+study.optimize(objective, n_trials=30)
 
 print(study.best_params)
 joblib.dump(study, 'study.pkl')
