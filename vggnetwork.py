@@ -51,6 +51,9 @@ test_images = test_images.reshape(-1, 28, 28, 1)
 def lrelu(x): return keras.activations.relu(x, alpha=0.1)
 
 
+
+dropout = 0.16951289916179973
+
 # create model
 model = Sequential()
 
@@ -63,27 +66,27 @@ model.add(Conv2D(
     input_shape=(28, 28, 1)
 ))
 model.add(keras.layers.BatchNormalization())
-model.add(Dropout(0.4))
+model.add(Dropout(dropout))
 model.add(Conv2D(32, (3, 3), strides=1, padding="same", activation=lrelu))
 model.add(keras.layers.BatchNormalization())
-model.add(Dropout(0.4))
+model.add(Dropout(dropout))
 model.add(MaxPooling2D((2, 2)))
 
 model.add(Conv2D(64, (3, 3), strides=1, padding="same", activation=lrelu))
 model.add(keras.layers.BatchNormalization())
-model.add(Dropout(0.4))
+model.add(Dropout(dropout))
 model.add(Conv2D(64, (3, 3), strides=1, padding="same", activation=lrelu))
 model.add(keras.layers.BatchNormalization())
 
-model.add(Dropout(0.4))
+model.add(Dropout(dropout))
 model.add(MaxPooling2D((2, 2)))
 
 model.add(Conv2D(128, (3, 3), strides=1, padding="same", activation=lrelu))
 model.add(keras.layers.BatchNormalization())
-model.add(Dropout(0.4))
+model.add(Dropout(dropout))
 model.add(Conv2D(128, (3, 3), strides=1, padding="same", activation=lrelu))
 model.add(keras.layers.BatchNormalization())
-model.add(Dropout(0.4))
+model.add(Dropout(dropout))
 model.add(MaxPooling2D((2, 2)))
 
 model.add(Flatten())

@@ -47,7 +47,8 @@ def objective(trial):
     ])
     '''
     optimizer = 'Adam'
-    dropout = trial.suggest_float('dropout', 0, 1)
+    #dropout = trial.suggest_float('dropout', 0, 1)
+    dropout = 0.16951289916179973
     # l1 = trial.suggest_loguniform('l1', 0.000001, 0.1)
 
     # create model
