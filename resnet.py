@@ -74,8 +74,6 @@ def create_res_net():
 
 def main():
     model = create_res_net()
-    print(model.summary())
-    exit()
     train, test = fashion_mnist.load_data()
 
     (train_images, train_labels), (test_images, test_labels) = train, test
